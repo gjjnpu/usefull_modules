@@ -1,0 +1,28 @@
+dotnet tool install --global dotnet-coverage
+
+
+dotnet-coverage collect  dotnet test ManageFileUtility.sln --settings:.runsetting
+
+dotnet-coverage collect dotnet test ManageFileUtility.sln 
+dotnet-coverage collect  dotnet test ManageFileUtility.sln /settings:.runsetting
+
+
+
+3 format
+dotnet-coverage merge -o merged.cobertura.xml -f cobertura **\*.coverage  (can be used)
+
+dotnet-coverage merge -o merged.coverage -f coverage **\*.coverage  (binary)
+dotnet-coverage merge -o test1.xml -f xml **\*.coverage( only contains functions)
+
+
+https://learn.microsoft.com/en-us/visualstudio/test/vstest-console-options?view=vs-2022  vstest.console.exe 
+
+
+https://stackoverflow.com/questions/57528056/difference-between-vstest-console-exe-and-dotnet-test-commands
+
+Dotnet vs vstest.console.exe
+
+dotnet-coverage collect  --settings:.runsettings dotnet test NXOpenReporterTests.dll /InIsolation /Logger:trx /TestAdapterPath:. /Logger:html /Logger:blame
+
+nxopenreporter：
+https://gitlab.industrysoftware.automation.siemens.com/nxopenreporter/upgrading-nx-open-customization   
